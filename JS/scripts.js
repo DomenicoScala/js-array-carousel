@@ -26,12 +26,32 @@ for(let i = 0; i < imgArr.length; i++){
             <img src="${imgArr[i]}" alt="">
         </div> `;
     }
-    
-    
-    
-    
-
-
-
 
 }
+
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+
+const allItem = document.querySelectorAll('.item');
+let imgCounter = 0;
+
+nextButton.addEventListener('click', function(){
+    
+    if(imgCounter != allItem.length - 1){
+        allItem[imgCounter].classList.remove('active');
+
+        imgCounter++;
+
+        allItem[imgCounter].classList.add('active');
+    }
+});
+
+prevButton.addEventListener('click', function(){
+    if(imgCounter > 0){
+        allItem[imgCounter].classList.remove('active');
+ 
+        imgCounter--;
+    
+        allItem[imgCounter].classList.add('active'); 
+    }
+ });
