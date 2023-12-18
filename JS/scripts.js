@@ -35,16 +35,7 @@ const nextButton = document.querySelector('.next');
 const allItem = document.querySelectorAll('.item');
 let imgCounter = 0;
 
-nextButton.addEventListener('click', function(){
-    
-    if(imgCounter != allItem.length - 1){
-        allItem[imgCounter].classList.remove('active');
-
-        imgCounter++;
-
-        allItem[imgCounter].classList.add('active');
-    }
-});
+nextButton.addEventListener('click', autoPlay);
 
 prevButton.addEventListener('click', function(){
     if(imgCounter > 0){
@@ -55,3 +46,24 @@ prevButton.addEventListener('click', function(){
         allItem[imgCounter].classList.add('active'); 
     }
  });
+
+
+
+
+ setInterval(autoPlay,3000)
+
+
+
+/* 
+    FUNZIONI
+*/
+
+function autoPlay () {
+    if(imgCounter != allItem.length - 1){
+        allItem[imgCounter].classList.remove('active');
+
+        imgCounter++;
+
+        allItem[imgCounter].classList.add('active');
+    }
+}
